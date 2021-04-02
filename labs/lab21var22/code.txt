@@ -1,0 +1,14 @@
+#!/bin/bash
+cd /home/gleb/Desktop
+read count
+for file in /home/gleb/Desktop/test/*
+do
+if [ $(wc -c $file | awk '{print $1}') -lt $count ]; then
+filename="${file%.*}
+extension=${file##*.}
+name=`basename "$filename"`
+s=`echo "$name" | cut -c1`
+mv "$file" "$filename"."$s"
+fi
+done
+"
