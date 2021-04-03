@@ -1,14 +1,23 @@
 #!/bin/bash
-cd /home/gleb/Desktop
 read count
-for file in /home/gleb/Desktop/test/*
+
+for file in "$(pwd)"/*
 do
-if [ $(wc -c $file | awk '{print $1}') -lt $count ]; then
-filename="${file%.*}
-extension=${file##*.}
-name=`basename "$filename"`
-s=`echo "$name" | cut -c1`
-mv "$file" "$filename"."$s"
-fi
+
+  if [ $(wc -c $file | awk '{print $1}') -lt $count ] && [ file != "wc.txt" ]; then
+  
+    filename="${file%.*}
+    extension=${file##*.}
+    name=`basename "$filename"`
+    s=`echo "$name" | cut -c1`
+    
+    if [ "$file" != "$filename"."$s" ]; then
+    
+      mv "$file" "$filename"."$s"
+      
+    fi
+    
+  fi
+  
 done
 "
