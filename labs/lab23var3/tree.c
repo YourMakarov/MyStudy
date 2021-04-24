@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "tree.h"
 
+//структура узла
 struct Node {
     int value;                   // значение узла
     int depth;
@@ -12,6 +12,8 @@ struct Node {
     struct Node* left;
 };
 
+
+//создание дерева
 node *tree_create(int key)
 {
     node *tree = (node *) malloc(sizeof(node));
@@ -24,6 +26,7 @@ node *tree_create(int key)
     return tree;
 }
 
+//добавление узла
 void *tree_add_node(node *root, int key)
 {
     node *res = tree_create(key);
@@ -42,6 +45,7 @@ void *tree_add_node(node *root, int key)
     }
 }
 
+//две последующие функции выводят список смежности в формате: "значение_родителя: значение_первого_сына значение_второго_сына..."
 void print_node(node *n) {
     //printf(": ");
     node *last = n;
@@ -86,6 +90,7 @@ void remove_node(node *t) {
         support_remover(t);
     }
 }
+
 
 void min_depth(node *t, int *mdepth, int *count) {
     if (t == NULL) {
