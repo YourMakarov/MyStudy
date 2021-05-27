@@ -1,6 +1,6 @@
-#ifndef DATA_H
-#define DATA_H
-#define eps 0.00001
+#ifndef LIST_H
+#define LIST_H
+
 
 typedef struct list_list {
     int size;
