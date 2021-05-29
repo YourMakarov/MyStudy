@@ -1,15 +1,18 @@
 CC = gcc
 CFLAGS = -std=c99 -pedantic -Wall -g
-OBJ = main.o stack.o
+OBJ = main.o stack.o sort.o
 PROG = program
 
-build: main.o stack.o
+build: main.o sort.o stack.o
 	$(CC) $(CFLAGS) -o $(PROG) $(OBJ)
 
 main.o: main.c
 	$(CC) $(CFLAGS) -c main.c
 
-list.o: stack.c
+sort.o: sort.c
+	$(CC) $(CFLAGS) -c sort.c
+
+stack.o: stack.c
 	$(CC) $(CFLAGS) -c stack.c
 
 clean:

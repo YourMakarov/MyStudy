@@ -14,6 +14,5 @@ T pop2(Node_t **head);
 T peek(const Node_t* head);
 void printStack(const Node_t* head);
 int getSize(const Node_t *head);
-Node_t * procedure(Node_t **head);
 
 #endif
